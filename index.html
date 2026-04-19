@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gestengesteuerte Zeichenanwendung im Browser mit MediaPipe Handtracking">
+    <title>Gesture Drawing – Handzeichen Projekt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Video (versteckt, nur für Kamera-Feed) -->
+    <video id="video" playsinline></video>
+
+    <!-- Canvas-Container mit drei Schichten -->
+    <div id="canvasContainer">
+        <!-- Schicht 1: Kamerabild + Landmarks -->
+        <canvas id="cameraCanvas"></canvas>
+        <!-- Schicht 2: Zeichenfläche (Additiv-Blending) -->
+        <canvas id="drawCanvas"></canvas>
+        <!-- Schicht 3: HUD-Overlay -->
+        <canvas id="hudCanvas"></canvas>
+    </div>
+
+    <!-- Lade-Overlay -->
+    <div id="loadingOverlay">
+        <div class="loader"></div>
+        <div class="loading-title">Gesture Drawing</div>
+        <div id="loadingStatus">Initialisierung...</div>
+    </div>
+
+    <!-- MediaPipe Hands CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+            crossorigin="anonymous"></script>
+
+    <!-- Hauptprogramm als ES-Modul -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
